@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-------- title ------------->
+    <title>Filter List | CSS & JavaScript</title>
+
+    <!-------- Customer css link ------------->
+    <link rel="stylesheet" href="./practice.css">
+
+
+</head>
+<body>
+
+
+        <h2>My PhoneBook</h2>
+
+        <div class="phoneBook">
+            <input type="text" id="myInput" onkeyup="myFunc()" placeholder="Search for names...">
+
+            <ul id="list">
+                <li><a href="#">Aasim</a></li>
+                <li><a href="#">Anees</a></li>
+                <li><a href="#">zakir</a></li>
+                <li><a href="#">Zohaib</a></li>
+                <li><a href="#">Siraj</a></li>
+                <li><a href="#">Sartaj</a></li>
+                <li><a href="#">Mazhar</a></li>
+                <li><a href="#">Ali Raza khoso</a></li>
+                <li><a href="#">Adeeb</a></li>
+            </ul>
+        </div>
+
+        <script type="text/javaScript">
+            function myFunc(){
+                var input, filter, ul, li, a, i, textValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("list");
+                li = ul.getElementsByTagName("li");
+
+                for (i = 0; i < li.length; i++){
+                    a = li[i].getElementsByTagName("a")[0];
+                    textValue = a.textContent || a.innerText;
+                    if (textValue.toUpperCase().indexOf(filter) > -1){
+                        li[i].style.display = "";
+                    }
+                    else{
+                        li[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+    
+</body>
+</html>
